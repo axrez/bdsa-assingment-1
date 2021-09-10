@@ -16,20 +16,15 @@ namespace Assignment1.Tests
             Assert.Equal(expected, Iterators.Flatten<int>(streamOfStreams));
         }
 
-    [Fact]
-    public void Filter_can_extract_only_even_from_enumerable()
-    {
+        [Fact]
+        public void Filter_can_extract_only_even_from_enumerable()
+        {
+            IEnumerable<int> stream = new[] { 1, 3, 5, 7, 8, 9, 10, 11, 12, 14, 16 };
 
-        IEnumerable<int> stream = new[] {1, 3, 5, 7, 8, 9, 10, 11, 12, 14, 16};
+            Predicate<int> even = (int i) => i % 2 == 0;
+            IEnumerable<int> expected = new[] { 8, 10, 12, 14, 16 };
 
-    
-
-        Predicate<int> even = (int i) => i % 2 == 0; 
-
-        IEnumerable<int> expected = new[] {8, 10, 12, 14, 16};
-        Assert.Equal(expected, Iterators.Filter<int>(stream, even));
-
-    }
-
+            Assert.Equal(expected, Iterators.Filter<int>(stream, even));
+        }
     }
 }
