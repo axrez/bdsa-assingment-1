@@ -16,8 +16,6 @@ namespace Assignment1
                     yield return match.ToString();
                 }
             }
-
-        
         }
 
         public static IEnumerable<(int width, int height)> Resolution(string resolutions)
