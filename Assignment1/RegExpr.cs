@@ -12,10 +12,10 @@ namespace Assignment1
 
              foreach (string line in lines)
             {
-                var matches = Regex.Matches(line, @"[a-zA-Z0-9]*");
-                foreach (string match in matches)
+                var matches = Regex.Matches(line, @"[a-zA-Z0-9]+");
+                foreach (var match in matches)
                 {
-                    yield return match;
+                    yield return match.ToString();
                 }
             }
 

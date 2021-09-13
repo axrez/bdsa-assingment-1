@@ -11,9 +11,11 @@ namespace Assignment1.Tests
         [Fact]
         public static void Can_SplitLine_Split_A_Line(){
 
-            IEnumerable<string> input = new[] {"1024x768, 800x600, 640x480"};
+            IEnumerable<string> input = new[] {"1024x768, 800x600, 640x480", "550x800, 360x420"};
 
-            IEnumerable<string> expected = new[] {"1024x768", "800x600", "640x480"};
+
+            IEnumerable<string> expected = new[] {"1024x768", "800x600", "640x480", "550x800", "360x420"};
+            
 
 
 
