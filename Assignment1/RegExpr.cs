@@ -20,7 +20,13 @@ namespace Assignment1
 
         public static IEnumerable<(int width, int height)> Resolution(string resolutions)
         {
-            throw new NotImplementedException();
+            var matches = Regex.Matches(resolutions, @"(?<width>\d+)x(?<height>\d+)");
+
+            foreach (Match match in matches){
+
+                yield return (Int32.Parse(match.Groups["width"].Value), Int32.Parse(match.Groups["height"].Value));
+
+            }
         }
 
         public static IEnumerable<string> InnerText(string html, string tag)
