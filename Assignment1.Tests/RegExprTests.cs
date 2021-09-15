@@ -29,5 +29,21 @@ namespace Assignment1.Tests
 
         }
 
+        [Fact]
+
+        public void InnerText_returns_stream_of_text_between_chosen_tag(){
+
+            string input = @"<div>
+                            <p>This text <i>is</i> test <u>text.</u> There <em>are</em> none like it.</p></div>    <div><div><p> 
+                            This one, <em>however</em>, is way <u>cooler</u>.</p></div></div>
+                            <div><p>             Regardless, <u>the last one</u> truly takes the cake.                  </p></div>";
+
+            IEnumerable<string> expected = new[] {"This text is test text. There are none like it.", "This one, however, is way cooler.",
+                                                    "Regardless, the last one truly takes the cake."};
+            
+
+            Assert.Equal(expected, RegExpr.InnerText(input, "p"));
+        }
+
     }
 }

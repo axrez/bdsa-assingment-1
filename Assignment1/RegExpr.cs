@@ -31,7 +31,21 @@ namespace Assignment1
 
         public static IEnumerable<string> InnerText(string html, string tag)
         {
-            throw new NotImplementedException();
+
+            //Regex captures everything between the specified start and end tags
+            string rexeg = "<" + tag + @"[^>]*>(?<alltag>.*?)<\/" + tag + ">";
+
+            var matches = Regex.Matches(html, rexeg, RegexOptions.Singleline);
+
+            foreach (Match match in matches){
+
+
+                //Regex deletes every instance of <Anything_Written_Here>, as well as leading and trailing whitespace, 
+                //carriage return and line feed. Making these regexes was by far not the most fun experience of my life,
+                //but certainly one of plentiful learning.
+                yield return Regex.Replace(match.Groups["alltag"].Value, @"<[^>]+>|^\s+|\s+$", "");
+
+            }
         }
     }
 }
