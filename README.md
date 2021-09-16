@@ -1,4 +1,5 @@
 # Assignment 1
+By Emil Østergaard (@axrez) and Bruno Martinovic (@Br00nac)
 
 ## C&#35;
 
